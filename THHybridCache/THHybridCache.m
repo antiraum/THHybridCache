@@ -30,6 +30,10 @@
     dispatch_queue_t diskWriteQueue;
 }
 
+@synthesize memoryCacheSize = _memoryCacheSize;
+@synthesize timeout = _timeout;
+@synthesize jpgQuality = _jpgQuality;
+
 + (THHybridCache*)sharedCache
 {
     static THHybridCache* shared = nil;
