@@ -171,8 +171,8 @@
     return img;
 }
 
-- (void)setImage:(UIImage*)img forKey:(NSString*)key inMemory:(BOOL)inMemory
-          onDisk:(BOOL)onDisk hasTransparency:(BOOL)hasTransparency
+- (void)cacheImage:(UIImage*)img forKey:(NSString*)key inMemory:(BOOL)inMemory
+            onDisk:(BOOL)onDisk hasTransparency:(BOOL)hasTransparency
 {
     NSParameterAssert(img && key);
 

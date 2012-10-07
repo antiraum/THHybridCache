@@ -19,8 +19,8 @@
 
 - (BOOL)hasCacheForKey:(NSString*)key onlyInMemory:(BOOL)onlyInMemory;
 - (UIImage*)imageForKey:(NSString*)key onlyFromMemory:(BOOL)onlyFromMemory;
-- (void)setImage:(UIImage*)img forKey:(NSString*)key inMemory:(BOOL)inMemory
-          onDisk:(BOOL)onDisk hasTransparency:(BOOL)hasTransparency; // hasTransparency triggers the use of PNG or JPG representations
+- (void)cacheImage:(UIImage*)img forKey:(NSString*)key inMemory:(BOOL)inMemory
+            onDisk:(BOOL)onDisk hasTransparency:(BOOL)hasTransparency; // hasTransparency triggers the use of PNG or JPG representations
 - (void)removeCacheForKey:(NSString*)key;
 - (void)cleanCache; // call this regularly (e.g., on each app start) to enforce the timeout
 - (void)clearCache; // empties the cache
