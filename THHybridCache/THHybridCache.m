@@ -46,6 +46,7 @@
 
 #define DEFAULT_MEMORY_SIZE 100
 #define DEFAULT_TIMEOUT 86400
+#define DEFAULT_JPG_QUALITY 0.8
 
 - (id)init
 {
@@ -55,6 +56,7 @@
         // set defaults
         _memoryCacheSize = DEFAULT_MEMORY_SIZE;
         _timeout = DEFAULT_TIMEOUT;
+        _jpgQuality = DEFAULT_JPG_QUALITY;
         
         // init memory cache
         memoryCache = [[NSCache alloc] init];
@@ -199,7 +201,7 @@
         {
             success = (hasTransparency ?
                        [UIImagePNGRepresentation(img) writeToFile:[THHybridCache cachePathForKey:key] atomically:YES] :
-                       [UIImageJPEGRepresentation(img, 0.8) writeToFile:[THHybridCache cachePathForKey:key] atomically:YES]);
+                       [UIImageJPEGRepresentation(img, self.jpgQuality) writeToFile:[THHybridCache cachePathForKey:key] atomically:YES]);
         }
         
         if (! success) {
