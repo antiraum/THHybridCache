@@ -18,7 +18,7 @@ Usage
     [[THHybridCache sharedCache] setTimeout:(24 * 60 * 60)];
     [[THHybridCache sharedCache] setJpgQuality:0.8];
     
-    // cache an image (in memory and/or disk, as PNG or JPG)
+    // cache an image (in memory and/or on disk, as PNG or JPG)
     UIImage* img = [UIImage imageNamed:@"test"];
     NSString* imgKey = @"testImgKey";
     [[THHybridCache sharedCache] cacheImage:img forKey:imgKey inMemory:YES onDisk:YES hasTransparency:YES];
