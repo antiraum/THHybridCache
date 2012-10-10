@@ -250,13 +250,10 @@ __VA_ARGS__ \
     NSMutableArray *removeList = [NSMutableArray array];
     
     dispatch_sync(cacheDictionaryAccessQueue, ^{
-        
-        for (NSString* key in [cacheDictionary allKeys])
-        {
-            NSDate* date = cacheDictionary[key];
+        [cacheDictionary enumerateKeysAndObjectsUsingBlock:^(id key, NSDate* date, BOOL *stop) {
             if ([[[NSDate date] earlierDate:date] isEqualToDate:date])
                 [removeList addObject:key];
-        }
+        }];
     });
     
     if ([removeList count] == 0) return;
