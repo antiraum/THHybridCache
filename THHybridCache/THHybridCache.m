@@ -13,6 +13,16 @@
 // You can turn on ARC for only THHybridCache files by adding -fobjc-arc to the build phase for each of its files.
 #endif
 
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (! defined(__IPHONE_6_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0))
+#define TH_DEPLOYMENT_TARGET_PRE_IOS6(...) \
+if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 6) \
+{ \
+__VA_ARGS__ \
+}
+#else
+#define TH_DEPLOYMENT_TARGET_PRE_IOS6(...)
+#endif
+
 #ifdef DEBUG
 #   define THLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
 #else
@@ -81,10 +91,10 @@
 
 - (void)dealloc
 {
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (! defined(__IPHONE_6_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0))
-    dispatch_release(cacheDictionaryAccessQueue);
-    dispatch_release(diskWriteQueue);
-#endif
+    TH_DEPLOYMENT_TARGET_PRE_IOS6(
+        dispatch_release(cacheDictionaryAccessQueue);
+        dispatch_release(diskWriteQueue);
+    )
 }
 
 #pragma mark - Properties
@@ -289,6 +299,9 @@
 
 - (void)saveDictionary
 {
+    TH_DEPLOYMENT_TARGET_PRE_IOS6(
+        dispatch_retain(cacheDictionaryAccessQueue);
+    )
     dispatch_async(diskWriteQueue, ^{
         dispatch_sync(cacheDictionaryAccessQueue, ^{
             @autoreleasepool {
@@ -297,6 +310,9 @@
                     THLog(@"Failed to save cache dictionary");
             }
         });
+        TH_DEPLOYMENT_TARGET_PRE_IOS6(
+            dispatch_release(cacheDictionaryAccessQueue);
+        )
     });
 }
 
