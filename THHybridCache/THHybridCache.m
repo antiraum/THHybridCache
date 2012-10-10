@@ -175,7 +175,7 @@ __VA_ARGS__ \
     
     if (img) {
         [self setTimeoutIntervalForKey:key];
-        [self performSelectorOnMainThread:@selector(saveDictionaryAfterDelay) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
     }
     
     return img;
@@ -189,7 +189,7 @@ __VA_ARGS__ \
     if ([self hasCacheForKey:key onlyInMemory:inMemory])
     {
         [self setTimeoutIntervalForKey:key];
-        [self performSelectorOnMainThread:@selector(saveDictionaryAfterDelay) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
         return;
     }
     
@@ -197,7 +197,7 @@ __VA_ARGS__ \
     {
         [memoryCache setObject:img forKey:key];
         [self setTimeoutIntervalForKey:key];
-        [self performSelectorOnMainThread:@selector(saveDictionaryAfterDelay) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
     }
     
     if (! onDisk) return;
@@ -221,7 +221,7 @@ __VA_ARGS__ \
         
         if (! inMemory) {
             [wself setTimeoutIntervalForKey:key];
-            [wself performSelectorOnMainThread:@selector(saveDictionaryAfterDelay) withObject:nil waitUntilDone:YES];
+            [wself performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
         }
     });
 }
@@ -238,7 +238,7 @@ __VA_ARGS__ \
         [cacheDictionary removeObjectForKey:key];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself saveDictionaryAfterDelay];
+            [wself cacheDictionaryChanged];
             [memoryCache removeObjectForKey:key];
             [wself removeFileForKey:key];
         });
@@ -264,7 +264,7 @@ __VA_ARGS__ \
         [cacheDictionary removeObjectsForKeys:removeList];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself saveDictionaryAfterDelay];
+            [wself cacheDictionaryChanged];
             for (NSString* key in removeList) {
                 [memoryCache removeObjectForKey:key];
                 [wself removeFileForKey:key];
@@ -287,14 +287,14 @@ __VA_ARGS__ \
 
 #define DICTIONARY_SAVE_DELAY 0.3
 
-- (void)saveDictionaryAfterDelay
+- (void)cacheDictionaryChanged
 {
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(saveCacheDictionary)
                                                object:nil];
-	[self performSelector:@selector(saveDictionary) withObject:nil afterDelay:DICTIONARY_SAVE_DELAY];
+	[self performSelector:@selector(saveCacheDictionary) withObject:nil afterDelay:DICTIONARY_SAVE_DELAY];
 }
 
-- (void)saveDictionary
+- (void)saveCacheDictionary
 {
     TH_DEPLOYMENT_TARGET_PRE_IOS6(
         dispatch_retain(cacheDictionaryAccessQueue);
