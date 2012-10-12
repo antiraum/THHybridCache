@@ -276,7 +276,7 @@ __VA_ARGS__ \
 - (void)clearCache
 {
     __block NSArray* allKeys = nil;
-    dispatch_async(cacheDictionaryAccessQueue, ^{
+    dispatch_sync(cacheDictionaryAccessQueue, ^{
         allKeys = [cacheDictionary allKeys];
     });
     for (NSString* key in allKeys)
