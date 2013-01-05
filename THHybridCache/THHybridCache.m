@@ -158,8 +158,31 @@ __VA_ARGS__ \
         hasCache = ([cacheDictionary objectForKey:key] != nil);
     });
     
-    if (hasCache && onlyInMemory)
+    if (! hasCache) return NO;
+    
+    if (onlyInMemory)
+    {
         hasCache = ([memoryCache objectForKey:key] != nil);
+        
+        if (! hasCache
+            && ! [[NSFileManager defaultManager] fileExistsAtPath:[THHybridCache cachePathForKey:key]])
+        {
+            dispatch_barrier_async(cacheDictionaryAccessQueue, ^{
+                [cacheDictionary removeObjectForKey:key];
+                [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
+            });
+        }
+        
+        return hasCache;
+    }
+    
+    hasCache = [[NSFileManager defaultManager] fileExistsAtPath:[THHybridCache cachePathForKey:key]];
+    
+    if (! hasCache)
+        dispatch_barrier_async(cacheDictionaryAccessQueue, ^{
+            [cacheDictionary removeObjectForKey:key];
+            [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
+        });
     
     return hasCache;
 }
@@ -168,17 +191,20 @@ __VA_ARGS__ \
 {
     NSParameterAssert(key);
     
-    UIImage* img = [memoryCache objectForKey:key];
-    
-    if (! img && ! onlyFromMemory)
-        img = [UIImage imageWithContentsOfFile:[THHybridCache cachePathForKey:key]];
-    
-    if (img) {
-        [self setTimeoutIntervalForKey:key];
-        [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
+    @autoreleasepool
+    {
+        UIImage* img = [memoryCache objectForKey:key];
+        
+        if (! img && ! onlyFromMemory)
+            img = [UIImage imageWithContentsOfFile:[THHybridCache cachePathForKey:key]];
+        
+        if (img) {
+            [self setTimeoutIntervalForKey:key];
+            [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
+        }
+        
+        return img;
     }
-    
-    return img;
 }
 
 - (void)cacheImage:(UIImage*)img forKey:(NSString*)key inMemory:(BOOL)inMemory
@@ -201,28 +227,55 @@ __VA_ARGS__ \
     }
     
     if (! onDisk) return;
-        
+    
     THWeakSelf wself = self;
     dispatch_async(diskWriteQueue, ^{
         
-        BOOL success = NO;
+        __block BOOL success = NO;
+        void (^saveToDisk)() =
+        [^{
+            @autoreleasepool {
+                success = (hasTransparency ?
+                           [UIImagePNGRepresentation(img) writeToFile:[THHybridCache cachePathForKey:key]
+                                                           atomically:YES] :
+                           [UIImageJPEGRepresentation(img, self.jpgQuality) writeToFile:[THHybridCache cachePathForKey:key]
+                                                                             atomically:YES]);
+            }
+        } copy];
         
-        @autoreleasepool
-        {
-            success = (hasTransparency ?
-                       [UIImagePNGRepresentation(img) writeToFile:[THHybridCache cachePathForKey:key] atomically:YES] :
-                       [UIImageJPEGRepresentation(img, self.jpgQuality) writeToFile:[THHybridCache cachePathForKey:key] atomically:YES]);
-        }
+        saveToDisk();
         
-        if (! success) {
-            THLog(@"Failed to save %@ to %@", img, [THHybridCache cachePathForKey:key]);
+        if (success) {
+            if (! inMemory) {
+                [wself setTimeoutIntervalForKey:key];
+                [wself performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil
+                                     waitUntilDone:NO];
+            }
             return;
         }
         
-        if (! inMemory) {
-            [wself setTimeoutIntervalForKey:key];
-            [wself performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil waitUntilDone:NO];
-        }
+        // maybe out of disk space? try cleaning first
+        [wself cleanCacheCompletion:^{
+            
+            saveToDisk();
+            
+            if (! success) {
+                THLog(@"Failed to save %@ to %@", img, [THHybridCache cachePathForKey:key]);
+                if (! inMemory)
+                    dispatch_barrier_async(cacheDictionaryAccessQueue, ^{
+                        [cacheDictionary removeObjectForKey:key];
+                        [self performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil
+                                            waitUntilDone:NO];
+                    });
+                return;
+            }
+            
+            if (! inMemory) {
+                [wself setTimeoutIntervalForKey:key];
+                [wself performSelectorOnMainThread:@selector(cacheDictionaryChanged) withObject:nil
+                                     waitUntilDone:NO];
+            }
+        }];
     });
 }
 
@@ -240,12 +293,17 @@ __VA_ARGS__ \
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself cacheDictionaryChanged];
             [memoryCache removeObjectForKey:key];
-            [wself removeFileForKey:key];
+            [wself removeFileForKey:key completion:NULL];
         });
     });
 }
 
 - (void)cleanCache
+{
+    [self cleanCacheCompletion:NULL];
+}
+
+- (void)cleanCacheCompletion:(void(^)())completionBlock
 {
     NSMutableArray *removeList = [NSMutableArray array];
     
@@ -256,7 +314,10 @@ __VA_ARGS__ \
         }];
     });
     
-    if ([removeList count] == 0) return;
+    if ([removeList count] == 0) {
+        if (completionBlock) completionBlock();
+        return;
+    }
     
     THWeakSelf wself = self;
     dispatch_barrier_async(cacheDictionaryAccessQueue, ^{
@@ -265,10 +326,13 @@ __VA_ARGS__ \
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself cacheDictionaryChanged];
-            for (NSString* key in removeList) {
-                [memoryCache removeObjectForKey:key];
-                [wself removeFileForKey:key];
-            }
+            [removeList enumerateObjectsWithOptions:NSEnumerationConcurrent
+                                         usingBlock:^(NSString* key, NSUInteger idx, BOOL *stop)
+             {
+                 [memoryCache removeObjectForKey:key];
+                 [wself removeFileForKey:key completion:(completionBlock && key == [removeList lastObject] ?
+                                                         completionBlock : NULL)];
+             }];
         });
     });
 }
@@ -279,8 +343,10 @@ __VA_ARGS__ \
     dispatch_sync(cacheDictionaryAccessQueue, ^{
         allKeys = [cacheDictionary allKeys];
     });
-    for (NSString* key in allKeys)
-		[self removeCacheForKey:key];
+    [allKeys enumerateObjectsWithOptions:NSEnumerationConcurrent
+                              usingBlock:^(NSString* key, NSUInteger idx, BOOL *stop) {
+                                  [self removeCacheForKey:key];
+                              }];
 }
 
 #pragma mark - Cache Dictionary Saving
@@ -289,6 +355,7 @@ __VA_ARGS__ \
 
 - (void)cacheDictionaryChanged
 {
+    // coalesce save requests
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(saveCacheDictionary)
                                                object:nil];
 	[self performSelector:@selector(saveCacheDictionary) withObject:nil afterDelay:DICTIONARY_SAVE_DELAY];
@@ -323,13 +390,14 @@ __VA_ARGS__ \
     });
 }
 
-- (void)removeFileForKey:(NSString*)key
+- (void)removeFileForKey:(NSString*)key completion:(void(^)())completionBlock
 {
     NSParameterAssert(key);
     dispatch_async(diskWriteQueue, ^{
-        NSError* error = nil;
-        if (! [[NSFileManager defaultManager] removeItemAtPath:[THHybridCache cachePathForKey:key] error:&error])
-            THLog(@"Failed to delete %@: %@", [THHybridCache cachePathForKey:key], error.localizedDescription);
+        
+        [[NSFileManager defaultManager] removeItemAtPath:[THHybridCache cachePathForKey:key] error:nil];
+        
+        if (completionBlock) completionBlock();
     });
 }
 
