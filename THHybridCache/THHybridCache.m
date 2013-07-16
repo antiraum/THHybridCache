@@ -7,30 +7,14 @@
 //
 
 #import "THHybridCache.h"
+#import "THLog.h"
+#import "THWeakSelf.h"
+#import "THiOSVersionMacros.h"
 
 #if !__has_feature(objc_arc)
 #error THHybridCache must be built with ARC.
 // You can turn on ARC for only THHybridCache files by adding -fobjc-arc to the build phase for each of its files.
 #endif
-
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (! defined(__IPHONE_6_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0))
-#define TH_DEPLOYMENT_TARGET_PRE_IOS6(...) \
-if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 6) \
-{ \
-__VA_ARGS__ \
-}
-#else
-#define TH_DEPLOYMENT_TARGET_PRE_IOS6(...)
-#endif
-
-#ifdef DEBUG
-#   define THLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
-#else
-#   define THLog(...)
-#endif
-
-#define THWeakObject(o) __weak __typeof__((__typeof__(o))o)
-#define THWeakSelf THWeakObject(self)
 
 @implementation THHybridCache
 {
@@ -125,7 +109,7 @@ __VA_ARGS__ \
         NSError* error = nil;
         if (! [[NSFileManager defaultManager] createDirectoryAtPath:THHybridCachePath
                                         withIntermediateDirectories:YES attributes:nil error:&error])
-            THLog(@"Failed to create directory %@: %@", THHybridCachePath, error.localizedDescription);
+            DLog(@"Failed to create directory %@: %@", THHybridCachePath, error.localizedDescription);
     });
 	return THHybridCachePath;
 }
@@ -260,7 +244,7 @@ __VA_ARGS__ \
             saveToDisk();
             
             if (! success) {
-                THLog(@"Failed to save %@ to %@", img, [THHybridCache cachePathForKey:key]);
+                DLog(@"Failed to save %@ to %@", img, [THHybridCache cachePathForKey:key]);
                 if (! inMemory)
                     dispatch_barrier_async(cacheDictionaryAccessQueue, ^{
                         [cacheDictionary removeObjectForKey:key];
@@ -371,7 +355,7 @@ __VA_ARGS__ \
             @autoreleasepool {
                 if (! [cacheDictionary writeToFile:[THHybridCache dictionaryCachePath]
                                         atomically:YES])
-                    THLog(@"Failed to save cache dictionary");
+                    DLog(@"Failed to save cache dictionary");
             }
         });
         TH_DEPLOYMENT_TARGET_PRE_IOS6(
