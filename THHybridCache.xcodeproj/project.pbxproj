@@ -67,7 +67,6 @@
 		E230B06317BAC0DC00D42664 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		E230B08617BAC13F00D42664 /* THHybridCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THHybridCache.h; sourceTree = "<group>"; };
 		E230B08717BAC13F00D42664 /* THHybridCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THHybridCache.m; sourceTree = "<group>"; };
-		E230B08817BAC13F00D42664 /* THiOSVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THiOSVersionMacros.h; sourceTree = "<group>"; };
 		E230B08917BAC13F00D42664 /* THLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THLog.h; sourceTree = "<group>"; };
 		E230B08A17BAC13F00D42664 /* THWeakSelf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THWeakSelf.h; sourceTree = "<group>"; };
 		E230B08D17BAC15A00D42664 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 				E230B01E17BABEF900D42664 /* Supporting Files */,
 				E230B08617BAC13F00D42664 /* THHybridCache.h */,
 				E230B08717BAC13F00D42664 /* THHybridCache.m */,
-				E230B08817BAC13F00D42664 /* THiOSVersionMacros.h */,
 				E230B08917BAC13F00D42664 /* THLog.h */,
 				E230B08A17BAC13F00D42664 /* THWeakSelf.h */,
 			);
@@ -572,7 +570,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THHybridCacheDemo/THHybridCacheDemo-Prefix.pch";
 				INFOPLIST_FILE = "THHybridCacheDemo/THHybridCacheDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -585,7 +583,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THHybridCacheDemo/THHybridCacheDemo-Prefix.pch";
 				INFOPLIST_FILE = "THHybridCacheDemo/THHybridCacheDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
