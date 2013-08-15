@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 Thomas Heß. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 @interface THHybridCache : NSObject
 
 // number of items cached in memory (defaults to 100)

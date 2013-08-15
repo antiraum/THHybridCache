@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E230B01C17BABEF900D42664 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46933161F751100CB809F /* Foundation.framework */; };
+		E230B02A17BABEFA00D42664 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E230B02917BABEFA00D42664 /* XCTest.framework */; };
+		E230B02B17BABEFA00D42664 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46933161F751100CB809F /* Foundation.framework */; };
+		E230B02C17BABEFA00D42664 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46931161F751100CB809F /* UIKit.framework */; };
+		E230B02F17BABEFA00D42664 /* libTHHybridCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E230B01B17BABEF900D42664 /* libTHHybridCache.a */; };
+		E230B03517BABEFA00D42664 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E230B03317BABEFA00D42664 /* InfoPlist.strings */; };
+		E230B03717BABEFA00D42664 /* THHybridCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B03617BABEFA00D42664 /* THHybridCacheTests.m */; };
+		E230B05417BAC0A700D42664 /* THAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B05117BAC0A700D42664 /* THAppDelegate.m */; };
+		E230B05517BAC0A700D42664 /* THViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B05317BAC0A700D42664 /* THViewController.m */; };
+		E230B06517BAC0DC00D42664 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E230B06217BAC0DC00D42664 /* MainStoryboard_iPhone.storyboard */; };
+		E230B08B17BAC13F00D42664 /* THHybridCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B08717BAC13F00D42664 /* THHybridCache.m */; };
+		E230B08C17BAC13F00D42664 /* THHybridCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B08717BAC13F00D42664 /* THHybridCache.m */; };
+		E230B09017BAC15A00D42664 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E230B08D17BAC15A00D42664 /* Default-568h@2x.png */; };
+		E230B09117BAC15A00D42664 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E230B08E17BAC15A00D42664 /* Default.png */; };
+		E230B09217BAC15A00D42664 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E230B08F17BAC15A00D42664 /* Default@2x.png */; };
+		E230B09817BAC16B00D42664 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E230B09317BAC16B00D42664 /* InfoPlist.strings */; };
+		E230B09917BAC16B00D42664 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B09517BAC16B00D42664 /* main.m */; };
+		E26FE4DF17BCC66D00A4C448 /* THHybridCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B08717BAC13F00D42664 /* THHybridCache.m */; };
+		E2E46932161F751100CB809F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46931161F751100CB809F /* UIKit.framework */; };
+		E2E46934161F751100CB809F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46933161F751100CB809F /* Foundation.framework */; };
+		E2E46936161F751100CB809F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46935161F751100CB809F /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E230B02D17BABEFA00D42664 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E46924161F751100CB809F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E230B01A17BABEF900D42664;
+			remoteInfo = THHybridCache;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E230B01917BABEF900D42664 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E230B01B17BABEF900D42664 /* libTHHybridCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTHHybridCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E230B01F17BABEF900D42664 /* THHybridCache-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "THHybridCache-Prefix.pch"; sourceTree = "<group>"; };
+		E230B02817BABEFA00D42664 /* THHybridCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THHybridCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E230B02917BABEFA00D42664 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E230B03217BABEFA00D42664 /* THHybridCacheTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "THHybridCacheTests-Info.plist"; sourceTree = "<group>"; };
+		E230B03417BABEFA00D42664 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E230B03617BABEFA00D42664 /* THHybridCacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHybridCacheTests.m; sourceTree = "<group>"; };
+		E230B05017BAC0A700D42664 /* THAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAppDelegate.h; sourceTree = "<group>"; };
+		E230B05117BAC0A700D42664 /* THAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAppDelegate.m; sourceTree = "<group>"; };
+		E230B05217BAC0A700D42664 /* THViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THViewController.h; sourceTree = "<group>"; };
+		E230B05317BAC0A700D42664 /* THViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THViewController.m; sourceTree = "<group>"; };
+		E230B06317BAC0DC00D42664 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		E230B08617BAC13F00D42664 /* THHybridCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THHybridCache.h; sourceTree = "<group>"; };
+		E230B08717BAC13F00D42664 /* THHybridCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THHybridCache.m; sourceTree = "<group>"; };
+		E230B08817BAC13F00D42664 /* THiOSVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THiOSVersionMacros.h; sourceTree = "<group>"; };
+		E230B08917BAC13F00D42664 /* THLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THLog.h; sourceTree = "<group>"; };
+		E230B08A17BAC13F00D42664 /* THWeakSelf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THWeakSelf.h; sourceTree = "<group>"; };
+		E230B08D17BAC15A00D42664 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E230B08E17BAC15A00D42664 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E230B08F17BAC15A00D42664 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E230B09417BAC16B00D42664 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E230B09517BAC16B00D42664 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E230B09617BAC16B00D42664 /* THHybridCacheDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "THHybridCacheDemo-Info.plist"; sourceTree = "<group>"; };
+		E230B09717BAC16B00D42664 /* THHybridCacheDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "THHybridCacheDemo-Prefix.pch"; sourceTree = "<group>"; };
+		E2E4692D161F751100CB809F /* THHybridCacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THHybridCacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E46931161F751100CB809F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2E46933161F751100CB809F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2E46935161F751100CB809F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2E46958161F751200CB809F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E230B01817BABEF900D42664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B01C17BABEF900D42664 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E230B02517BABEFA00D42664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B02A17BABEFA00D42664 /* XCTest.framework in Frameworks */,
+				E230B02C17BABEFA00D42664 /* UIKit.framework in Frameworks */,
+				E230B02F17BABEFA00D42664 /* libTHHybridCache.a in Frameworks */,
+				E230B02B17BABEFA00D42664 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E4692A161F751100CB809F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E46932161F751100CB809F /* UIKit.framework in Frameworks */,
+				E2E46934161F751100CB809F /* Foundation.framework in Frameworks */,
+				E2E46936161F751100CB809F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E230B01D17BABEF900D42664 /* THHybridCache */ = {
+			isa = PBXGroup;
+			children = (
+				E230B01E17BABEF900D42664 /* Supporting Files */,
+				E230B08617BAC13F00D42664 /* THHybridCache.h */,
+				E230B08717BAC13F00D42664 /* THHybridCache.m */,
+				E230B08817BAC13F00D42664 /* THiOSVersionMacros.h */,
+				E230B08917BAC13F00D42664 /* THLog.h */,
+				E230B08A17BAC13F00D42664 /* THWeakSelf.h */,
+			);
+			path = THHybridCache;
+			sourceTree = "<group>";
+		};
+		E230B01E17BABEF900D42664 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E230B01F17BABEF900D42664 /* THHybridCache-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E230B03017BABEFA00D42664 /* THHybridCacheTests */ = {
+			isa = PBXGroup;
+			children = (
+				E230B03617BABEFA00D42664 /* THHybridCacheTests.m */,
+				E230B03117BABEFA00D42664 /* Supporting Files */,
+			);
+			path = THHybridCacheTests;
+			sourceTree = "<group>";
+		};
+		E230B03117BABEFA00D42664 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E230B03217BABEFA00D42664 /* THHybridCacheTests-Info.plist */,
+				E230B03317BABEFA00D42664 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2E46922161F751100CB809F = {
+			isa = PBXGroup;
+			children = (
+				E2E46937161F751100CB809F /* THHybridCacheDemo */,
+				E230B01D17BABEF900D42664 /* THHybridCache */,
+				E230B03017BABEFA00D42664 /* THHybridCacheTests */,
+				E2E46930161F751100CB809F /* Frameworks */,
+				E2E4692E161F751100CB809F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2E4692E161F751100CB809F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2E4692D161F751100CB809F /* THHybridCacheDemo.app */,
+				E230B01B17BABEF900D42664 /* libTHHybridCache.a */,
+				E230B02817BABEFA00D42664 /* THHybridCacheTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2E46930161F751100CB809F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2E46931161F751100CB809F /* UIKit.framework */,
+				E2E46933161F751100CB809F /* Foundation.framework */,
+				E2E46935161F751100CB809F /* CoreGraphics.framework */,
+				E2E46958161F751200CB809F /* SenTestingKit.framework */,
+				E230B02917BABEFA00D42664 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2E46937161F751100CB809F /* THHybridCacheDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E230B06217BAC0DC00D42664 /* MainStoryboard_iPhone.storyboard */,
+				E2E46938161F751200CB809F /* Supporting Files */,
+				E230B05017BAC0A700D42664 /* THAppDelegate.h */,
+				E230B05117BAC0A700D42664 /* THAppDelegate.m */,
+				E230B05217BAC0A700D42664 /* THViewController.h */,
+				E230B05317BAC0A700D42664 /* THViewController.m */,
+			);
+			path = THHybridCacheDemo;
+			sourceTree = "<group>";
+		};
+		E2E46938161F751200CB809F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E230B08D17BAC15A00D42664 /* Default-568h@2x.png */,
+				E230B08E17BAC15A00D42664 /* Default.png */,
+				E230B08F17BAC15A00D42664 /* Default@2x.png */,
+				E230B09317BAC16B00D42664 /* InfoPlist.strings */,
+				E230B09517BAC16B00D42664 /* main.m */,
+				E230B09617BAC16B00D42664 /* THHybridCacheDemo-Info.plist */,
+				E230B09717BAC16B00D42664 /* THHybridCacheDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E230B01A17BABEF900D42664 /* THHybridCache */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E230B03817BABEFA00D42664 /* Build configuration list for PBXNativeTarget "THHybridCache" */;
+			buildPhases = (
+				E230B01717BABEF900D42664 /* Sources */,
+				E230B01817BABEF900D42664 /* Frameworks */,
+				E230B01917BABEF900D42664 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THHybridCache;
+			productName = THHybridCache;
+			productReference = E230B01B17BABEF900D42664 /* libTHHybridCache.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E230B02717BABEFA00D42664 /* THHybridCacheTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E230B03B17BABEFA00D42664 /* Build configuration list for PBXNativeTarget "THHybridCacheTests" */;
+			buildPhases = (
+				E230B02417BABEFA00D42664 /* Sources */,
+				E230B02517BABEFA00D42664 /* Frameworks */,
+				E230B02617BABEFA00D42664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E230B02E17BABEFA00D42664 /* PBXTargetDependency */,
+			);
+			name = THHybridCacheTests;
+			productName = THHybridCacheTests;
+			productReference = E230B02817BABEFA00D42664 /* THHybridCacheTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2E4692C161F751100CB809F /* THHybridCacheDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E46969161F751200CB809F /* Build configuration list for PBXNativeTarget "THHybridCacheDemo" */;
+			buildPhases = (
+				E2E46929161F751100CB809F /* Sources */,
+				E2E4692A161F751100CB809F /* Frameworks */,
+				E2E4692B161F751100CB809F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THHybridCacheDemo;
+			productName = THHybridCacheDemo;
+			productReference = E2E4692D161F751100CB809F /* THHybridCacheDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2E46924161F751100CB809F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TH;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Thomas Heß";
+				TargetAttributes = {
+					E230B02717BABEFA00D42664 = {
+						TestTargetID = E2E4692C161F751100CB809F;
+					};
+					E2E4692C161F751100CB809F = {
+						DevelopmentTeam = S7X4B7QXAR;
+					};
+				};
+			};
+			buildConfigurationList = E2E46927161F751100CB809F /* Build configuration list for PBXProject "THHybridCache" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E2E46922161F751100CB809F;
+			productRefGroup = E2E4692E161F751100CB809F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2E4692C161F751100CB809F /* THHybridCacheDemo */,
+				E230B01A17BABEF900D42664 /* THHybridCache */,
+				E230B02717BABEFA00D42664 /* THHybridCacheTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E230B02617BABEFA00D42664 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B03517BABEFA00D42664 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E4692B161F751100CB809F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B06517BAC0DC00D42664 /* MainStoryboard_iPhone.storyboard in Resources */,
+				E230B09817BAC16B00D42664 /* InfoPlist.strings in Resources */,
+				E230B09217BAC15A00D42664 /* Default@2x.png in Resources */,
+				E230B09017BAC15A00D42664 /* Default-568h@2x.png in Resources */,
+				E230B09117BAC15A00D42664 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E230B01717BABEF900D42664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B08B17BAC13F00D42664 /* THHybridCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E230B02417BABEFA00D42664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E230B08C17BAC13F00D42664 /* THHybridCache.m in Sources */,
+				E230B03717BABEFA00D42664 /* THHybridCacheTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E46929161F751100CB809F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26FE4DF17BCC66D00A4C448 /* THHybridCache.m in Sources */,
+				E230B05517BAC0A700D42664 /* THViewController.m in Sources */,
+				E230B09917BAC16B00D42664 /* main.m in Sources */,
+				E230B05417BAC0A700D42664 /* THAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E230B02E17BABEFA00D42664 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E230B01A17BABEF900D42664 /* THHybridCache */;
+			targetProxy = E230B02D17BABEFA00D42664 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E230B03317BABEFA00D42664 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E230B03417BABEFA00D42664 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E230B06217BAC0DC00D42664 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E230B06317BAC0DC00D42664 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		E230B09317BAC16B00D42664 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E230B09417BAC16B00D42664 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E230B03917BABEFA00D42664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DSTROOT = /tmp/THHybridCache.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCache/THHybridCache-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E230B03A17BABEFA00D42664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DSTROOT = /tmp/THHybridCache.dst;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCache/THHybridCache-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E230B03C17BABEFA00D42664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THHybridCacheDemo.app/THHybridCacheDemo";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCache/THHybridCache-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "THHybridCacheTests/THHybridCacheTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E230B03D17BABEFA00D42664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THHybridCacheDemo.app/THHybridCacheDemo";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCache/THHybridCache-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "THHybridCacheTests/THHybridCacheTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		E2E46967161F751200CB809F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2E46968161F751200CB809F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2E4696A161F751200CB809F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCacheDemo/THHybridCacheDemo-Prefix.pch";
+				INFOPLIST_FILE = "THHybridCacheDemo/THHybridCacheDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2E4696B161F751200CB809F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THHybridCacheDemo/THHybridCacheDemo-Prefix.pch";
+				INFOPLIST_FILE = "THHybridCacheDemo/THHybridCacheDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E230B03817BABEFA00D42664 /* Build configuration list for PBXNativeTarget "THHybridCache" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E230B03917BABEFA00D42664 /* Debug */,
+				E230B03A17BABEFA00D42664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E230B03B17BABEFA00D42664 /* Build configuration list for PBXNativeTarget "THHybridCacheTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E230B03C17BABEFA00D42664 /* Debug */,
+				E230B03D17BABEFA00D42664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E46927161F751100CB809F /* Build configuration list for PBXProject "THHybridCache" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E46967161F751200CB809F /* Debug */,
+				E2E46968161F751200CB809F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E46969161F751200CB809F /* Build configuration list for PBXNativeTarget "THHybridCacheDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E4696A161F751200CB809F /* Debug */,
+				E2E4696B161F751200CB809F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2E46924161F751100CB809F /* Project object */;
+}
