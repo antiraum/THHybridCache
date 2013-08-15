@@ -62,10 +62,16 @@
     XCTAssertNotNil([[THHybridCache sharedCache] imageForKey:file1 onlyFromMemory:NO],
                     @"img not cached");
     
+    // access private cache queues to test async behaviour
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    dispatch_queue_t cacheDictionaryAccessQueue = [[THHybridCache sharedCache] performSelector:@selector(cacheDictionaryAccessQueue)];
+    dispatch_queue_t diskWriteQueue = [[THHybridCache sharedCache] performSelector:@selector(diskWriteQueue)];
+#pragma clang diagnostic pop
+    
     // test cache removal
     [[THHybridCache sharedCache] removeCacheForKey:file1];
     // wait for cacheDictionaryAccessQueue
-    dispatch_queue_t cacheDictionaryAccessQueue = [[THHybridCache sharedCache] performSelector:@selector(cacheDictionaryAccessQueue)];
     dispatch_barrier_sync(cacheDictionaryAccessQueue, ^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -87,7 +93,6 @@
     [[THHybridCache sharedCache] cacheImage:img2 forKey:file2 inMemory:NO onDisk:YES
                             hasTransparency:YES];
     // wait for diskWriteQueue
-    dispatch_queue_t diskWriteQueue = [[THHybridCache sharedCache] performSelector:@selector(diskWriteQueue)];
     dispatch_barrier_sync(diskWriteQueue, ^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
