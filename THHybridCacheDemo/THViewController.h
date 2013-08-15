@@ -10,4 +10,11 @@
 
 @interface THViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView* imgView1;
+@property (nonatomic, weak) IBOutlet UIImageView* imgView2;
+@property (nonatomic, weak) IBOutlet UIButton* btn1;
+@property (nonatomic, weak) IBOutlet UIButton* btn2;
+
+- (IBAction)loadImage:(id)sender;
+
 @end

@@ -25,6 +25,9 @@
 		E230B09817BAC16B00D42664 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E230B09317BAC16B00D42664 /* InfoPlist.strings */; };
 		E230B09917BAC16B00D42664 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B09517BAC16B00D42664 /* main.m */; };
 		E26FE4DF17BCC66D00A4C448 /* THHybridCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E230B08717BAC13F00D42664 /* THHybridCache.m */; };
+		E26FE4E317BCC94B00A4C448 /* file000704292456.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E26FE4E017BCC94B00A4C448 /* file000704292456.jpg */; };
+		E26FE4E417BCC94B00A4C448 /* file000714103327.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E26FE4E117BCC94B00A4C448 /* file000714103327.jpg */; };
+		E26FE4E517BCC94B00A4C448 /* file000162678218.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E26FE4E217BCC94B00A4C448 /* file000162678218.jpg */; };
 		E2E46932161F751100CB809F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46931161F751100CB809F /* UIKit.framework */; };
 		E2E46934161F751100CB809F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46933161F751100CB809F /* Foundation.framework */; };
 		E2E46936161F751100CB809F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E46935161F751100CB809F /* CoreGraphics.framework */; };
@@ -76,6 +79,10 @@
 		E230B09517BAC16B00D42664 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E230B09617BAC16B00D42664 /* THHybridCacheDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "THHybridCacheDemo-Info.plist"; sourceTree = "<group>"; };
 		E230B09717BAC16B00D42664 /* THHybridCacheDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "THHybridCacheDemo-Prefix.pch"; sourceTree = "<group>"; };
+		E26FE4E017BCC94B00A4C448 /* file000704292456.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = file000704292456.jpg; sourceTree = "<group>"; };
+		E26FE4E117BCC94B00A4C448 /* file000714103327.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = file000714103327.jpg; sourceTree = "<group>"; };
+		E26FE4E217BCC94B00A4C448 /* file000162678218.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = file000162678218.jpg; sourceTree = "<group>"; };
+		E26FE4E617BCCF0500A4C448 /* THFloatEqualToFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFloatEqualToFloat.h; sourceTree = "<group>"; };
 		E2E4692D161F751100CB809F /* THHybridCacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THHybridCacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E46931161F751100CB809F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2E46933161F751100CB809F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -139,8 +146,12 @@
 		E230B03017BABEFA00D42664 /* THHybridCacheTests */ = {
 			isa = PBXGroup;
 			children = (
-				E230B03617BABEFA00D42664 /* THHybridCacheTests.m */,
+				E26FE4E217BCC94B00A4C448 /* file000162678218.jpg */,
+				E26FE4E017BCC94B00A4C448 /* file000704292456.jpg */,
+				E26FE4E117BCC94B00A4C448 /* file000714103327.jpg */,
 				E230B03117BABEFA00D42664 /* Supporting Files */,
+				E26FE4E617BCCF0500A4C448 /* THFloatEqualToFloat.h */,
+				E230B03617BABEFA00D42664 /* THHybridCacheTests.m */,
 			);
 			path = THHybridCacheTests;
 			sourceTree = "<group>";
@@ -280,7 +291,7 @@
 				ORGANIZATIONNAME = "Thomas Heß";
 				TargetAttributes = {
 					E230B02717BABEFA00D42664 = {
-						TestTargetID = E2E4692C161F751100CB809F;
+						TestTargetID = E230B01A17BABEF900D42664;
 					};
 					E2E4692C161F751100CB809F = {
 						DevelopmentTeam = S7X4B7QXAR;
@@ -311,6 +322,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26FE4E517BCC94B00A4C448 /* file000162678218.jpg in Resources */,
+				E26FE4E317BCC94B00A4C448 /* file000704292456.jpg in Resources */,
+				E26FE4E417BCC94B00A4C448 /* file000714103327.jpg in Resources */,
 				E230B03517BABEFA00D42664 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +465,6 @@
 		E230B03C17BABEFA00D42664 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THHybridCacheDemo.app/THHybridCacheDemo";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -477,7 +490,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -485,7 +497,6 @@
 		E230B03D17BABEFA00D42664 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THHybridCacheDemo.app/THHybridCacheDemo";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -507,7 +518,6 @@
 				INFOPLIST_FILE = "THHybridCacheTests/THHybridCacheTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
