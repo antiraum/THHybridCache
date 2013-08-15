@@ -159,15 +159,17 @@
                             hasTransparency:YES];
     XCTAssertTrue([[THHybridCache sharedCache] hasCacheForKey:file1 onlyInMemory:NO],
                   @"wrong cache status");
-    [NSTimer timerWithTimeInterval:1 target:self selector:@selector(checkCacheAfterTimeout:)
-                          userInfo:file1 repeats:NO];
+    NSTimer* timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(checkCacheAfterTimeout:)
+                                           userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 }
 
 - (void)checkCacheAfterTimeout:(NSTimer*)timer
 {
     [timer invalidate];
     [[THHybridCache sharedCache] cleanCache];
-    XCTAssertFalse([[THHybridCache sharedCache] hasCacheForKey:timer.userInfo onlyInMemory:NO],
+    XCTAssertFalse([[THHybridCache sharedCache] hasCacheForKey:@"file000162678218" onlyInMemory:NO],
                    @"wrong cache status");
 }
 
