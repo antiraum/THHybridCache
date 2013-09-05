@@ -45,6 +45,27 @@ Usage
     // Override point for customization after application launch.
     [[THHybridCache sharedCache] cleanCache];
 
+Installation
+-------
+
+###As a Git Submodule
+
+	git submodule add git://github.com/antiraum/THHybridCache.git <local path>
+	git submodule update
+
+###Via Cocoapods
+
+Add this line to your Podfile:
+
+    pod 'THHybridCache', '~> 1.0.0'
+	
+Compatibility
+-------
+
+THHybridCache requires iOS 6.0 and above. 
+
+THHybridCache uses ARC. If you are using THHybridCache in your non-ARC project, you need to set the `-fobjc-arc` compiler flag for the THHybridCache.m source file.
+
 License
 -------
 
